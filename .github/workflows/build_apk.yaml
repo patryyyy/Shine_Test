@@ -19,15 +19,9 @@ jobs:
                 sparse-checkout: .
                 submodules: true
 
-            - name: Setup Flutter SDK
-              uses: subosito/flutter-action@v2
-              with:
-                channel: stable
-                flutter-version: 3.22.1
-            
             - name: Setup Android SDK
               uses: android-actions/setup-android@v3
-
+  
             - name: Setup Android NDK
               run: sdkmanager "ndk;23.1.7779620"
 
@@ -39,6 +33,12 @@ jobs:
               with:
                 distribution: 'zulu'
                 java-version: '17'
+
+            - name: Setup Flutter SDK
+              uses: subosito/flutter-action@v2
+              with:
+                channel: stable
+                flutter-version: 3.22.1
 
             - run: flutter doctor -v
 
