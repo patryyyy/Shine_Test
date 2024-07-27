@@ -25,5 +25,20 @@ jobs:
                 channel: stable
                 flutter-version: 3.22.1
             
+            - name: Setup Android SDK
+              uses: android-actions/setup-android@v3
+
+            - name: Setup Android NDK
+              run: sdkmanager "ndk;23.1.7779620"
+
+            - name: Setup CMake
+              run: sdkmanager "cmake;3.22.1"
+
+            - name: Setup Java
+              uses: actions/setup-java@v4
+              with:
+                distribution: 'zulu'
+                java-version: '17'
+
             - run: flutter doctor -v
 
