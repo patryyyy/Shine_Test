@@ -19,6 +19,12 @@ jobs:
                 sparse-checkout: .
                 submodules: true
 
+            - name: Setup Java
+              uses: actions/setup-java@v4
+              with:
+                distribution: 'zulu'
+                java-version: '17'
+
             - name: Setup Android SDK
               uses: android-actions/setup-android@v3
   
@@ -27,12 +33,6 @@ jobs:
 
             - name: Setup CMake
               run: sdkmanager "cmake;3.22.1"
-
-            - name: Setup Java
-              uses: actions/setup-java@v4
-              with:
-                distribution: 'zulu'
-                java-version: '17'
 
             - name: Setup Flutter SDK
               uses: subosito/flutter-action@v2
